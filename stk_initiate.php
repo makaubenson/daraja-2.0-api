@@ -4,9 +4,9 @@ if(isset($_POST['submit'])){
 
   date_default_timezone_set('Africa/Nairobi');
 
-  # access token
-  $consumerKey = 'Keypt7N48B9aSa7P05c3XEY9tTrMO3nw'; //Fill with your app Consumer Key
-  $consumerSecret = 'SQhtNXAk1U2ni28V'; // Fill with your app Secret
+  # access token from the app created on daraja portal
+  $consumerKey = 'qby3hm4rzc5lMehhzsEG6Vp3puwGfAXx'; //Fill with your app Consumer Key
+  $consumerSecret = 'gRswDpBCqoPkSeaI'; // Fill with your app Secret
 
   # define the variales
   # provide the following details, this part is found on your test credentials on the developer account
@@ -16,14 +16,14 @@ if(isset($_POST['submit'])){
   /*
     This are your info, for
     $PartyA should be the ACTUAL clients phone number or your phone number, format 2547********
-    $AccountRefference, it maybe invoice number, account number etc on production systems, but for test just put anything
-    TransactionDesc can be anything, probably a better description of or the transaction
+    $AccountReference, it maybe invoice number, account number etc on production systems, but for test just put anything
+    TransactionDesc can be anything, probably a better description of the transaction
     $Amount this is the total invoiced amount, Any amount here will be 
     actually deducted from a clients side/your test phone number once the PIN has been entered to authorize the transaction. 
     for developer/test accounts, this money will be reversed automatically by midnight.
   */
   
-   $PartyA = $_POST['0758413462']; // This is your phone number, 
+   $PartyA = $_POST['254758413462']; // This is your phone number, 
   $AccountReference = '2255';
   $TransactionDesc = 'Test Payment';
   $Amount = $_POST['amount'];;
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
   $initiate_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
   # callback url
-  $CallBackURL = 'https://morning-forest-72309.herokuapp.com/callback_url.php';  
+  $CallBackURL = 'https://daraja-2-0.herokuapp.com/callback_url.php';  
 
   $curl = curl_init($access_token_url);
   curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
