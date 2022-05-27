@@ -19,3 +19,4 @@
      fclose($log);
  
      echo $response;
+?>
